@@ -38,13 +38,6 @@
                 Sterilized Surface Area:<br>
                 Elapsed Time: 
             </h3>
-            <!-- <div class="surface">
-                <h3>Surface size:</h3>
-                <label>Height: <span></span></label>
-                <input type="range" min="10" max="100" value="50" class="slider" id="surface_height"><br>
-                <label>Width: <span></span></label>
-                <input type="range" min="10" max="100" value="50" class="slider" id="surface_width">
-            </div> -->
             <div class="light">
                 <h3>Light Parameters:</h3>
                 <label>Position x (m): <span></span></label>
@@ -72,8 +65,15 @@
                 <h3>Simulation Parameters</h3>
                 <label>Simulation time (s): <span></span></label>
                 <input type="number" min="1" max="10000" value="1000" class="slider" id="simulation_time"><br>
-                <!-- <label>Simulation speed: <span></span></label>
-                <input type="range" min="1" max="1000" value="1" class="slider" id="simulation_speed"><br> -->
+                <label>Width (m):</label>
+                <input type="number" min="1" max="20" value="10" class="slider" id="width"><br>
+                <!-- <label>Height (m):</label>
+                <input type="number" min="1" max="20" value="10" class="slider" id="height"><br> -->
+                <label>Simulator resolution (boxes per meter):</label>
+                <input type="number" min="1" max="20" step="1" value="10" class="slider" id="boxes"><br>
+                <label>Activate grid:</label>
+                <input type="checkbox" id="grid" name="grid" value="Activate grid">
+               
             </div>
             <input type="button" value="Simulate" onclick="makeSimulation()">
         </div>

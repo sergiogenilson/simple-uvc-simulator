@@ -6,7 +6,7 @@ var real_width = 10; // In meters
 var real_height = 10; // In meters
 var boxPerMeter = 10;
 
-var boxSize = 5;
+var boxSize = 500 / (real_width * boxPerMeter);
 var width = real_width * boxPerMeter;
 var height = real_height * boxPerMeter;
 var interval;
@@ -31,6 +31,15 @@ var distanceFromSurface,
 
 function makeSimulation(){
 
+    boxPerMeter = Number(document.getElementById("boxes").value);
+    real_width = Number(document.getElementById("width").value);
+    // real_height = Number(document.getElementById("height").value);
+    real_height = real_width;
+    width = real_width * boxPerMeter;
+    height = real_width * boxPerMeter;
+
+    boxSize = 500 / (real_width * boxPerMeter)
+
     surface = new Array(height);
     simulationTime = document.getElementById("simulation_time").value;
 
@@ -46,6 +55,8 @@ function makeSimulation(){
 
     speed = document.getElementById("speed").value;
     desiredDose = Number(document.getElementById("dose").value);
+
+
 
     for (let i = 0; i < width; i++) {
         let row = new Array(height)
@@ -68,8 +79,6 @@ function makeSimulation(){
     bumperSpeedY = speed * Math.sin(directionInRadians);
 }
 
-
-// for (let t = 0; t < simulationTime; t++) {
 function simulate() {
     // simulate dose
     for (let i = 0; i < width; i++) {
@@ -80,7 +89,6 @@ function simulate() {
             surface[i][j] += irr;
         }
     }
-    // console.log("--> t = ", t);
     drawScene(surface);
     t++;
     bumperMove();
