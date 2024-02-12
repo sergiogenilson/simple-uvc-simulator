@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: #ccc;
+            }
+            #myCanvas, #myChart {
+                border: 1px solid #888;
+                background-color: #fff;
+            }
+            .boxes {
+                max-width: 50%;
+                float: left;
+            }
+            .controls {
+                display: block;
+                float: left;
+                padding-left: 8px;
+            }
+            .controls label {
+                display: block;
+            }
+            input[type="range"] {
+                width: 300px;
+            }
+            
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+
+    </head>
+    <body>
+        <div class="boxes"><canvas id="myCanvas" width="500" height="500"></canvas></div>
+        <div class="boxes"><canvas id="myChart" width="500" height="500"></canvas></div>
+        <div class="controls">
+            <h3 id="display">
+                Sterilized Surface Area:<br>
+                Elapsed Time: 
+            </h3>
+            <!-- <div class="surface">
+                <h3>Surface size:</h3>
+                <label>Height: <span></span></label>
+                <input type="range" min="10" max="100" value="50" class="slider" id="surface_height"><br>
+                <label>Width: <span></span></label>
+                <input type="range" min="10" max="100" value="50" class="slider" id="surface_width">
+            </div> -->
+            <div class="light">
+                <h3>Light Parameters:</h3>
+                <label>Position x (m): <span></span></label>
+                <input type="number" min="0" max="10" step="0.1" value="2" class="slider" id="x"><br>
+                <label>Position y (m): <span></span></label>
+                <input type="number" min="0" max="10" step="0.1" value="1" class="slider" id="y"><br>
+                <label>Distance from surface (m): <span></span></label>
+                <input type="number" min="0" max="10" step="0.1" value="0.3" class="slider" id="distance"><br>
+                <label>Lamp Power (W): <span></span></label>
+                <input type="number" min="1" max="1000" value="40" class="slider" id="power"><br>
+            </div>
+            <div class="light">
+                <h3>Movement Parameters:</h3>
+                <label>Speed (m/s): <span></span></label>
+                <input type="number" min="0.01" max="2" step="0.01" value="0.05" class="slider" id="speed"><br>
+                <label>Direction (degrees): <span></span></label>
+                <input type="number" min="0" max="360" value="25" class="slider" id="direction"><br>
+            </div>
+            <div class="light">
+                <h3>Dose:</h3>
+                <label>Desired Dose (J/m²): <span></span></label>
+                <input type="number" min="1" max="1000" step="0.1" value="255" class="slider" id="dose"><br>
+            </div>
+            <div class="simulation">
+                <h3>Simulation Parameters</h3>
+                <label>Simulation time (s): <span></span></label>
+                <input type="number" min="1" max="10000" value="1000" class="slider" id="simulation_time"><br>
+                <!-- <label>Simulation speed: <span></span></label>
+                <input type="range" min="1" max="1000" value="1" class="slider" id="simulation_speed"><br> -->
+            </div>
+            <input type="button" value="Simulate" onclick="makeSimulation()">
+        </div>
+    </body>
+    <script src="simulator.js"></script>
+</html>
