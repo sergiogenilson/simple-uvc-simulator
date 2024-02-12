@@ -10,6 +10,7 @@ var boxSize = 500 / (real_width * boxPerMeter);
 var width = real_width * boxPerMeter;
 var height = real_height * boxPerMeter;
 var interval;
+var grid = true;
 
 chart = plotChart();
 
@@ -55,7 +56,7 @@ function makeSimulation(){
 
     speed = document.getElementById("speed").value;
     desiredDose = Number(document.getElementById("dose").value);
-
+    grid = document.getElementById("grid").checked;
 
 
     for (let i = 0; i < width; i++) {
@@ -115,7 +116,9 @@ function bumperMove() {
 function drawRect(x, y, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, boxSize, boxSize);
-    ctx.rect(x, y, boxSize, boxSize);
+    if (grid) {
+        ctx.rect(x, y, boxSize, boxSize);
+    }
 }
 
 function drawScene(surface) {
